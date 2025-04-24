@@ -48,6 +48,7 @@
     <Compile Include="HW5.cs" />
     <Compile Include="HW6.cs" />
     <Compile Include="HW7.cs" />
+    <Compile Include="HW10.cs" />
     <Compile Include="HW8.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

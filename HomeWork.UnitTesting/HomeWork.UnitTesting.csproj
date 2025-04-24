@@ -55,6 +55,7 @@
     <Compile Include="HW5Tests.cs" />
     <Compile Include="HW6Tests.cs" />
     <Compile Include="HW7Tests.cs" />
+    <Compile Include="HW10Tests.cs" />
     <Compile Include="HW8Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
