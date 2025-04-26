@@ -6,6 +6,53 @@ namespace HomeWork.UnitTesting
     [TestClass]
     public class HW10Tests
     {
+
+        [TestMethod]
+        public void ChkIfArrIsPrime_Null_ReturnsFalse()
+        {
+            // arrange
+            bool actual;
+            int[] arr = null;
+
+            // act
+            actual = HW10.ChkIfArrIsPrime(arr);
+
+            // assert
+            Assert.IsFalse( actual, "Should get false but got " + actual);
+
+        }
+
+        [TestMethod]
+        public void ChkIfArrIsPrime_EmptyArr_ReturnsFalse()
+        {
+            // arrange
+            bool actual;
+            int[] arr = { };
+
+            // act
+            actual = HW10.ChkIfArrIsPrime(arr);
+
+            // assert
+            Assert.IsFalse(actual, "Should get false but got " + actual);
+
+        }
+
+
+        [TestMethod]
+        public void ChkIfArrIsPrime_ArrWhereNumOfPrimesHigherThanNumOfNotPrimes_ReturnsTrue()
+        {
+            // arrange
+            bool actual;
+            int[] arr = { 1, 2, 3, 5, 6, 7 };
+
+            // act
+            actual = HW10.ChkIfArrIsPrime(arr);
+
+            // assert
+            Assert.IsTrue(actual, "Should get true but got " + actual);
+
+        }
+
         [TestMethod]
         [DataRow(null, false, DisplayName = "ChkIfArrIsPrime_Null_ReturnsFalse")]
         [DataRow(new int[] {}, false, DisplayName = "ChkIfArrIsPrime_EmptyArr_ReturnsFalse")]
