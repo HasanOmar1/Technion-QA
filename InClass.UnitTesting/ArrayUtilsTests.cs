@@ -12,7 +12,7 @@ namespace InClass.UnitTesting
 
             // Arrange
             int[] arrToTest = { -3, 1, 10, 3, 8, 20 };
-            int[] expected = { 10,8,20 };
+            int[] expected = { 10, 8, 20 };
             int[] actual;
 
             ArrayUtils myCode = new ArrayUtils();
@@ -23,9 +23,8 @@ namespace InClass.UnitTesting
             // Assert
 
             // if we get null the test should fail
-            // option 1:
-            if(actual == null)
-            Assert.Fail("We shouldnt get null as a result");
+            if (actual == null)
+                Assert.Fail("We shouldnt get null as a result");
 
 
             Assert.AreEqual(expected.Length, actual.Length, "Bug in array length");
@@ -39,8 +38,8 @@ namespace InClass.UnitTesting
         {
 
             // Arrange
-            int[] arrToTest = { 6,8,10 };
-            int[] expected = { 6,8,10 };
+            int[] arrToTest = { 6, 8, 10 };
+            int[] expected = { 6, 8, 10 };
             int[] actual;
 
             ArrayUtils myCode = new ArrayUtils();
@@ -51,7 +50,6 @@ namespace InClass.UnitTesting
             // Assert
 
             // if we get null the test should fail
-            // option 1:
             if (actual == null)
                 Assert.Fail("We shouldnt get null as a result");
 
@@ -87,7 +85,7 @@ namespace InClass.UnitTesting
             Assert.AreEqual(expected.Length, actual.Length, "Bug in array length");
             //Assert.AreEqual(0, actual.Length, "Bug in array length");
 
-           
+
         }
 
         [TestMethod]
@@ -118,7 +116,7 @@ namespace InClass.UnitTesting
             //else
             //    Assert.Fail("BUG: We should have got null");
 
- 
+
 
 
         }
@@ -145,27 +143,27 @@ namespace InClass.UnitTesting
                 Assert.Fail("We shouldnt get null as a result");
 
             // if the code comes here then both actual and expected are not null
-            Assert.AreEqual(0, actual.Length, "Bug in array length");
-            //Assert.AreEqual(expected.Length, actual.Length, "Bug in array length");
+            Assert.AreEqual(expected.Length, actual.Length, "Bug in array length");
+            //Assert.AreEqual(0, actual.Length, "Bug in array length");
 
         }
 
         [TestMethod]
-        [DataRow(new int[] {-3,1,10,3,8,20}, new int[] { 10, 8, 20 } , DisplayName = "GetEvenItemsInIntArray_ArrayWithEvenNumsAndOddNumbers_ReturnsOnlyEven")]
-        [DataRow(new int[] { 20 }, new int[] {  20 }, DisplayName = "GetEvenItemsInIntArray_ArrayWithSingleEvenNumber_ReturnsArrWithOnlySingleNumber")]
+        [DataRow(new int[] { -3, 1, 10, 3, 8, 20 }, new int[] { 10, 8, 20 }, DisplayName = "GetEvenItemsInIntArray_ArrayWithEvenNumsAndOddNumbers_ReturnsOnlyEven")]
+        [DataRow(new int[] { 20 }, new int[] { 20 }, DisplayName = "GetEvenItemsInIntArray_ArrayWithSingleEvenNumber_ReturnsArrWithOnlySingleNumber")]
 
-        [DataRow(new int[] { 6, 8, 10 }, new int[] { 6, 8, 10 }, 
+        [DataRow(new int[] { 6, 8, 10 }, new int[] { 6, 8, 10 },
             DisplayName = "GetEvenItemsInIntArray_ArrayWithOnlyEvenNums_ReturnsInputArray")]
 
         [DataRow(new int[] { -3, 1, 101, 3, 81, 201 }, new int[] { },
             DisplayName = "GetEvenItemsInIntArray_ArrayWithOutEvenNums_ReturnsEmptyArr")]
 
-        [DataRow(null , null ,  DisplayName = "GetEvenItemsInIntArray_Null_ReturnsNull")]
+        [DataRow(null, null, DisplayName = "GetEvenItemsInIntArray_Null_ReturnsNull")]
 
         [DataRow(new int[] { }, new int[] { }, DisplayName = "GetEvenItemsInIntArray_EmptyArray_ReturnsEmptyArr")]
 
 
-        public void GetEvenItemsInIntArray(int[] arr , int[] expected)
+        public void GetEvenItemsInIntArray(int[] arr, int[] expected)
         {
 
             // Arrange
