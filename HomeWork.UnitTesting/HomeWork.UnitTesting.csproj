@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HW11Tests.cs" />
     <Compile Include="HW2Tests.cs" />
     <Compile Include="HW3Tests.cs" />
     <Compile Include="HW4Tests.cs" />
