@@ -92,6 +92,8 @@ namespace HomeWork.UnitTesting
                                 , "age"            } , DisplayName = "getSubArrByStartingCh_ValidValues_ReturnsAllSubArr")]
         [DataRow("AAAAA", 'A', new string[] { "AAAAA", "AAAA", "AAA", "AA", "A" }, DisplayName = "getSubArrByStartingCh_sIsAAAAAchIsA_ReturnsAllSubArr")]
         [DataRow("AAAAA", 'B', new string[] { }, DisplayName = "getSubArrByStartingCh_sIsAAAAAchIsB_ReturnsEmptyArr")]
+        [DataRow("", 'B', new string[] { }, DisplayName = "getSubArrByStartingCh_sIsEmptyArr_ReturnsEmptyArr")]
+        [DataRow(null, 'B', null, DisplayName = "getSubArrByStartingCh_sIsNull_ReturnsNull")]
         public void getSubArrByStartingCh(string s , char ch, string[] expected)
         {
 
