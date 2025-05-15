@@ -14,10 +14,14 @@ namespace HomeWork
         // result[1] ==> The bigger solution ( as a string)
         // result[2] ==> The smaller solution (as a string)
         // int[] coEfficients = { a, b, c } of aX^2  + bX + c 
-        // if the length of the input array is not 3  - return null
+        // meaning: if the length of the input array is not 3  - return null
+        //  note: if the input arr is {0,1,2} ,  i.e. a == 0 , return null
         public string[] SolveQuadraticEquation(int[] coEfficients)
         {
             if(coEfficients.Length != 3)
+                return null;
+
+            if(coEfficients[0] == 0)
                 return null;
 
             string[] result = { "0", null, null };
