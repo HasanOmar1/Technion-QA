@@ -85,11 +85,14 @@ namespace HomeWork.UnitTesting
 
         }
 
-        [TestMethod]
-        [DataRow(new int[] { -1, 12, -32 } ,"2" , "8" , "4" , DisplayName = "SolveQuadraticEquation_EqWith2Sol_ReturnsInRelevantOrder")]
+
+
+
+        [DataTestMethod]
+        [DataRow(new int[] { -1, 12, -32 }, "2", "8", "4", DisplayName = "SolveQuadraticEquation_EqWith2Sol_ReturnsInRelevantOrder")]
         [DataRow(new int[] { 1, 2, 1 }, "1", "-1", null, DisplayName = "SolveQuadraticEquation_EqWith1Sol_Returns1Minus1Null")]
         [DataRow(new int[] { -3, 2, -4 }, "0", null, null, DisplayName = "SolveQuadraticEquation_EqWith0Sol_Returns0NullNull")]
-        public void SolveQuadraticEquation(int[] coEfficients , string expectedLength , string expectedSol1 , string expectedSol2)
+        public void SolveQuadraticEquation(int[] coEfficients, string expectedLength, string expectedSol1, string expectedSol2)
         {
             // Arrange
             HW13 myCode = new HW13();
