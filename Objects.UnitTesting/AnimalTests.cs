@@ -219,7 +219,9 @@ namespace Objects.UnitTesting
         [DataRow(new object[] { "Cat", 1, 2.5 }, new object[] { "Cat", 1, 2.5 }, DisplayName = "Ctro1_ValidValues_ReturnsRelevantAnimal")]
         [DataRow(new object[] { "Cat", -1, 2.5 }, new object[] { "Cat", 0, 2.5 }, DisplayName = "Ctro1_NegativeAge_ReturnsAnimalWithAge0")]
         [DataRow(new object[] { null, -11, -2.5 }, new object[] { "Lion", 0, 1 }, DisplayName = "Ctro1_IllegalValues_ReturnsDefaultAsExpected")]
+        [DataRow(new object[] { "Cat" }, new object[] { "Cat", 5, 250 }, DisplayName = "Ctro2_ValidValues_ReturnsRelevantAnimal")]
         [DataRow(new object[] { null }, new object[] { "Lion", 5, 250 }, DisplayName = "Ctro2_AnimalIsNull_ReturnsAnimalAsLionWithDefaults")]
+        [DataRow(new object[] { "" }, new object[] { "Lion", 5, 250 }, DisplayName = "Ctro2_AnimalIsEmpty_ReturnsAnimalAsLionWithDefaults")]
 
 
         public void Ctros(object[] animalData, object[] expected)
