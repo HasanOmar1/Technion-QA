@@ -18,7 +18,7 @@ namespace Objects
 
         public Animal(string animalType, int age, double weight)
         {
-            this.animalType = animalType == null ? "Lion" : animalType;
+            this.animalType = string.IsNullOrEmpty(animalType) ? "Lion" : animalType;
             this.age = age < 0 ? 0 : age;
             this.weight = weight <= 0 ? 1 : weight;
         }
