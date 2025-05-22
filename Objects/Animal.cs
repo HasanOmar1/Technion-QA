@@ -28,7 +28,7 @@ namespace Objects
         // default weight = 250KG
         public Animal(string animalType)
         {
-            this.animalType = animalType == null ? "Lion" : animalType;
+            this.animalType = string.IsNullOrEmpty(animalType) ? "Lion" : animalType;
             this.age = 5;
             this.weight = 250;
         }

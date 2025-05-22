@@ -190,8 +190,9 @@ namespace Objects.UnitTesting
         }
 
         [DataTestMethod]
-        [DataRow(new object[] { "Cat", 5, 250 },new object[] { "Cat", 5, 250 }, DisplayName = "Ctro2_ValidValues_ReturnsRelevantAnimal")]
-        [DataRow(new object[] { null, 5, 250 }, new object[] { "Lion", 5, 250 }, DisplayName = "Ctro2_AnimalIsNull_ReturnsAnimalAsLionWithDefaults")]
+        [DataRow(new object[] { "Cat" },new object[] { "Cat", 5, 250 }, DisplayName = "Ctro2_ValidValues_ReturnsRelevantAnimal")]
+        [DataRow(new object[] { null }, new object[] { "Lion", 5, 250 }, DisplayName = "Ctro2_AnimalIsNull_ReturnsAnimalAsLionWithDefaults")]
+        [DataRow(new object[] { "" }, new object[] { "Lion", 5, 250 }, DisplayName = "Ctro2_AnimalIsEmpty_ReturnsAnimalAsLionWithDefaults")]
         public void Ctro2_UsingObjects(object[] animalData, object[] expected)
         {
 
@@ -200,9 +201,8 @@ namespace Objects.UnitTesting
 
 
             // Act
-            actual = new Animal(Convert.ToString(animalData[0]),
-                                Convert.ToInt32(animalData[1]),
-                                Convert.ToDouble(animalData[2]));
+            actual = new Animal(Convert.ToString(animalData[0]));
+                               
 
             // Assert
             Assert.AreEqual(Convert.ToString(expected[0]), actual.getAnimalType(), "Problem in Type");
@@ -212,5 +212,42 @@ namespace Objects.UnitTesting
 
         }
 
+
+
+
+        [DataTestMethod]
+        [DataRow(new object[] { "Cat", 1, 2.5 }, new object[] { "Cat", 1, 2.5 }, DisplayName = "Ctro1_ValidValues_ReturnsRelevantAnimal")]
+        [DataRow(new object[] { "Cat", -1, 2.5 }, new object[] { "Cat", 0, 2.5 }, DisplayName = "Ctro1_NegativeAge_ReturnsAnimalWithAge0")]
+        [DataRow(new object[] { null, -11, -2.5 }, new object[] { "Lion", 0, 1 }, DisplayName = "Ctro1_IllegalValues_ReturnsDefaultAsExpected")]
+        [DataRow(new object[] { null }, new object[] { "Lion", 5, 250 }, DisplayName = "Ctro2_AnimalIsNull_ReturnsAnimalAsLionWithDefaults")]
+
+
+        public void Ctros(object[] animalData, object[] expected)
+        {
+
+            // Arrange
+            Animal actual;
+            string type = Convert.ToString(animalData[0]);
+            string expectedType = Convert.ToString(expected[0]);
+            int expectedAge = Convert.ToInt32(expected[1]);
+            double expectedWeight = Convert.ToDouble(expected[2]);
+
+
+            // Act
+            if (animalData.Length == 3)
+                actual = new Animal(type,
+                                    Convert.ToInt32(animalData[1]),
+                                    Convert.ToDouble(animalData[2]));
+            else
+                actual = new Animal(type);
+
+
+            // Assert
+            Assert.AreEqual(expectedType, actual.getAnimalType(), "Problem in Type");
+            Assert.AreEqual(expectedAge, actual.getAge(), "Problem in Age");
+            Assert.AreEqual(expectedWeight, actual.getWeight(), "Problem in Weight");
+
+
+        }
     }
 }
