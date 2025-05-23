@@ -118,6 +118,7 @@
     <Compile Include="HW12Tests.cs" />
     <Compile Include="HW13Tests.cs" />
     <Compile Include="HW14HumanTests.cs" />
+    <Compile Include="HW15BoxTests.cs" />
     <Compile Include="HW2Tests.cs" />
     <Compile Include="HW3Tests.cs" />
     <Compile Include="HW4Tests.cs" />

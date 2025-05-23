@@ -22,15 +22,15 @@ namespace HomeWork
 
         public HW15Box(string color, double weight)
         {
-            this.color = color;
+            this.color = String.IsNullOrEmpty(color) ? "white" : color;
             this.len = 1;
             this.width = 1;
             this.height = 1;
-            this.weight = weight;
+            this.weight = weight < 1 ? 1 : weight;
 
         }
 
-
+        #region Getters
         public string GetColor()
         {
             return this.color;
@@ -55,6 +55,10 @@ namespace HomeWork
         {
             return this.weight;
         }
+
+        #endregion
+
+        #region Setters
 
         public void SetColor(string color)
         {
@@ -81,6 +85,12 @@ namespace HomeWork
             this.weight = weight;
         }
 
+        #endregion
+
+        //public static int a(HW15Box[] box)
+        //{
+
+        //}
 
 
 
