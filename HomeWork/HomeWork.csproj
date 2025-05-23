@@ -47,6 +47,7 @@
     <Compile Include="HW12.cs" />
     <Compile Include="HW13.cs" />
     <Compile Include="HW14Human.cs" />
+    <Compile Include="HW15Box.cs" />
     <Compile Include="HW3.cs" />
     <Compile Include="HW4.cs" />
     <Compile Include="HW5.cs" />

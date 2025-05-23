@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
 namespace HomeWork.UnitTesting
 {
@@ -29,7 +28,7 @@ namespace HomeWork.UnitTesting
         public void Ctor1_Human_NameIsNull_ReturnsNameAnonymous()
         {
             // Arrange
-            string name = null , expectedName = "anonymous";
+            string name = null, expectedName = "anonymous";
             string eyesColor = "green";
             string skinColor = "cyan";
             HW14Human human;
@@ -82,9 +81,9 @@ namespace HomeWork.UnitTesting
 
         }
 
-       
 
-      
+
+
 
         [TestMethod]
         public void Ctor2_Human_ValidInputs_ReturnsRelevantData()
@@ -96,7 +95,7 @@ namespace HomeWork.UnitTesting
             HW14Human human;
 
             // Act
-            human = new HW14Human(name,eyesColor);
+            human = new HW14Human(name, eyesColor);
 
             // Assert
             Assert.AreEqual(name, human.getName(), "Error in name");
@@ -109,13 +108,13 @@ namespace HomeWork.UnitTesting
         public void Ctor2_Human_NameIsNull_ReturnsNameAnonymous()
         {
             // Arrange
-            string name = null , expectedName = "anonymous";
+            string name = null, expectedName = "anonymous";
             string eyesColor = "gold";
             string expectedSkinColor = "green";
             HW14Human human;
 
             // Act
-            human = new HW14Human(name,eyesColor);
+            human = new HW14Human(name, eyesColor);
 
             // Assert
             Assert.AreEqual(expectedName, human.getName(), "Error in name");
@@ -166,14 +165,14 @@ namespace HomeWork.UnitTesting
 
 
         [TestMethod]
-        [DataRow("hasan" , "green" , "cyan" , "hasan" , "green" , "cyan" , "ctorAllParams", DisplayName = "Ctor1_Human_ValidInputs_ReturnsRelevantData")]
+        [DataRow("hasan", "green", "cyan", "hasan", "green", "cyan", "ctorAllParams", DisplayName = "Ctor1_Human_ValidInputs_ReturnsRelevantData")]
         [DataRow(null, "green", "cyan", "anonymous", "green", "cyan", "ctorAllParams", DisplayName = "Ctor1_Human_NameIsNull_ReturnsNameAnonymous")]
         [DataRow(null, null, null, "anonymous", "brown", "green", "ctorAllParams", DisplayName = "Ctor1_Human_AllParamsAreNull_ReturnsAllDefaultValues")]
 
         [DataRow("hasan", "green", "---", "hasan", "green", "green", "ctorTwoParams", DisplayName = "Ctor2_Human_ValidInputs_ReturnsRelevantData")]
-        [DataRow(null, "gold", "---" ,"anonymous", "gold", "green", "ctorTwoParams" , DisplayName = "Ctor2_Human_NameIsNull_ReturnsNameAnonymous")]
+        [DataRow(null, "gold", "---", "anonymous", "gold", "green", "ctorTwoParams", DisplayName = "Ctor2_Human_NameIsNull_ReturnsNameAnonymous")]
         [DataRow(null, null, "---", "anonymous", "brown", "green", "ctorTwoParams", DisplayName = "Ctor2_Human_AllParamsAreNull_ReturnsAllDefaultValues")]
-        public void Ctor1And2_Human(string name, string eyesColor , string skinColor , string expectedName, string expectedEyesColor, string expectedSkinColor , string ctor)
+        public void Ctor1And2_Human(string name, string eyesColor, string skinColor, string expectedName, string expectedEyesColor, string expectedSkinColor, string ctor)
         {
             // Arrange
             HW14Human human;
