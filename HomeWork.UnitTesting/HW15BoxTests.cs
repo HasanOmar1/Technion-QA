@@ -447,14 +447,18 @@ namespace HomeWork.UnitTesting
         }
 
         //[DataTestMethod]
-        //public void A_Methods_WithObject(object[] actual , object[] expected)
+        //[DataRow(new object[] { null }, new object[] { -1 }, DisplayName = "A_ArrIsNull_ReturnsMinus1")]
+        //public void A_Methods_WithObject(object[] boxData, object[] expected)
         //{
         //    // Arrange
+        //    int actual;
+        //    int box = Convert.ToInt32(boxData[0]), expectedBox = Convert.ToInt32(expected[0]);
 
         //    // Act
-        //    actual = HW15Box.A(actual[0]);
+        //    actual = HW15Box.A(box);
 
         //    // Assert
+        //    Assert.AreEqual(expectedBox, box, "Should return " + expected[0]);
 
         //}
     }
