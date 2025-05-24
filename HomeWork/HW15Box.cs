@@ -87,10 +87,26 @@ namespace HomeWork
 
         #endregion
 
-        //public static int a(HW15Box[] box)
-        //{
+        public static int A(HW15Box[] box)
+        {
+            if (box == null || box.Length == 0)
+                return -1;
 
-        //}
+            return 1;
+
+        }
+
+        public static HW15Box[] B(HW15Box[] box)
+        {
+            if (box == null)
+                return null;
+
+            if (box.Length == 0)
+                return new HW15Box[] { };
+
+            return box;
+
+        }
 
 
 

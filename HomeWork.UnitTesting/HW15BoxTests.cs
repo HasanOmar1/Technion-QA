@@ -329,5 +329,133 @@ namespace HomeWork.UnitTesting
 
 
         }
+
+
+
+
+        [TestMethod]
+        public void A_ArrIsNull_ReturnsMinus1()
+        {
+
+            // Arrange
+            int actual;
+            HW15Box[] box = null;
+            int expected = -1;
+
+            // Act
+            actual = HW15Box.A(box);
+
+            // Assert
+            Assert.AreEqual(expected, actual, "Should have returned " + expected);
+
+        }
+
+        [TestMethod]
+        public void A_ArrIsEmpty_ReturnsMinus1()
+        {
+
+            // Arrange
+            int actual;
+            HW15Box[] box = { };
+            int expected = -1;
+
+            // Act
+            actual = HW15Box.A(box);
+
+            // Assert
+            Assert.AreEqual(expected, actual, "Should have returned " + expected);
+
+        }
+
+        [TestMethod]
+        public void A_ValidArr_Returns1()
+        {
+
+            // Arrange
+            int actual;
+            HW15Box box1 = new HW15Box("red", 5);
+            HW15Box[] box = { box1 };
+            int expected = 1;
+
+            // Act
+            actual = HW15Box.A(box);
+
+            // Assert
+            Assert.AreEqual(expected, actual, "Should have returned " + expected);
+
+        }
+
+
+        [TestMethod]
+        public void B_ArrIsNull_ReturnsNull()
+        {
+
+            // Arrange
+            HW15Box[] actual;
+            HW15Box[] box = null, expected = null;
+
+            // Act
+            actual = HW15Box.B(box);
+
+            // Assert
+            Assert.AreEqual(expected, actual, "Should have returned null");
+            Assert.IsNull(actual, "Should have returned null");
+
+        }
+
+        [TestMethod]
+        public void B_ArrIsEmpty_ReturnsEmptyArr()
+        {
+
+            // Arrange
+            HW15Box[] actual;
+            HW15Box[] box = { };
+            HW15Box[] expected = { };
+
+            // Act
+            actual = HW15Box.B(box);
+
+            // Assert
+            Assert.AreEqual(expected.Length, actual.Length, "Bug in length of array");
+            for (int i = 0; i < actual.Length; i++)
+                Assert.AreEqual(expected[i], actual[i], "Bug at index #" + i);
+
+
+
+        }
+
+        [TestMethod]
+        public void B_ValidArr_ReturnsValidData()
+        {
+
+            // Arrange
+            HW15Box[] actual;
+
+            HW15Box box1 = new HW15Box("red", 5);
+            HW15Box box2 = new HW15Box("green", 5);
+
+            HW15Box[] boxes = { box1, box2 }, expected = { box1, box2 };
+
+            // Act
+            actual = HW15Box.B(boxes);
+
+            // Assert
+            Assert.AreEqual(expected.Length, actual.Length, "Bug in length of array");
+            for (int i = 0; i < actual.Length; i++)
+                Assert.AreEqual(expected[i], actual[i], "Bug at index #" + i);
+
+        }
+
+        //[DataTestMethod]
+        //public void A_Methods_WithObject(object[] actual , object[] expected)
+        //{
+        //    // Arrange
+
+        //    // Act
+        //    actual = HW15Box.A(actual[0]);
+
+        //    // Assert
+
+        //}
     }
 }
