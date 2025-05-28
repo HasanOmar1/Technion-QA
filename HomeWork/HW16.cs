@@ -1,4 +1,6 @@
-﻿namespace HomeWork
+﻿using System;
+
+namespace HomeWork
 {
     public class HW16
     {
@@ -33,10 +35,12 @@
                     else
                         break;
 
-                    break;
                 }
+                break;
 
             }
+
+            Console.WriteLine("K = " + k);
 
             int[] a = BuildK(arr, k);
             bool isSame = true;
@@ -46,6 +50,7 @@
                     if (a[i] != brr[i])
                         isSame = false;
                 }
+            else isSame = false;
 
             if (isSame) return k;
 

@@ -26,6 +26,25 @@ namespace HomeWork.UnitTesting
         }
 
 
+        [DataTestMethod]
+        [DataRow(new int[] { 1, 2, 3 }, new int[] { 1, 1, 2, 2, 3, 3 }, 2, DisplayName = "IsCopyK_ArrOf3Nums_BrrEachMemberInArrIsThere2Times_Returns2")]
+        [DataRow(new int[] { 1, 2, 3 }, new int[] { 1, 2, 3, 3 }, 0, DisplayName = "IsCopyK_ArrOf3Nums_BrrNotValid_Returns0")]
+        [DataRow(new int[] { 1, 2, 3 }, new int[] { 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3 }, 4, DisplayName = "IsCopyK_ArrOf3Nums_BrrEachMemberInArrIsThere4Times_Returns4")]
+
+        public void IsCopyK(int[] arr, int[] brr, int expected)
+        {
+            // Arrange
+            int actual;
+
+            // Act
+            actual = HW16.IsCopyK(arr, brr);
+
+            // Assert
+            Assert.AreEqual(expected, actual, "Should return " + expected + " but got " + actual);
+
+        }
+
+
         //[DataTestMethod]
         //[DataRow(new object[] { new int[] { 1, 2, 3 }, 2 }, new object[] { new int[] { 1, 1, 2, 2, 3, 3 } }, DisplayName = "buildK_validArr_K2_ReturnsArrWithEveryMemberDuplicated2Times")]
         //[DataRow(new object[] { new int[] { 1, 2, 3 }, 0 }, new object[] { new int[] { 1, 2, 3 } }, DisplayName = "buildK_validArr_K0_ReturnsArrWithSameMembersAsOriginal")]
