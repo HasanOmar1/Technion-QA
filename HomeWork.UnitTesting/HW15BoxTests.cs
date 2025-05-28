@@ -398,8 +398,8 @@ namespace HomeWork.UnitTesting
             actual = HW15Box.B(box);
 
             // Assert
-            Assert.AreEqual(expected, actual, "Should have returned null");
-            Assert.IsNull(actual, "Should have returned null");
+            Assert.AreEqual(expected, actual, "Should have returned " + expected);
+            Assert.IsNull(actual, "Should have returned " + expected);
 
         }
 
@@ -442,24 +442,32 @@ namespace HomeWork.UnitTesting
             // Assert
             Assert.AreEqual(expected.Length, actual.Length, "Bug in length of array");
             for (int i = 0; i < actual.Length; i++)
-                Assert.AreEqual(expected[i], actual[i], "Bug at index #" + i);
+            {
+                Assert.AreEqual(expected[i].GetColor(), actual[i].GetColor(), "Bug with color at index #" + i);
+                Assert.AreEqual(expected[i].GetWeight(), actual[i].GetWeight(), "Bug with weight at index #" + i);
+
+            }
 
         }
 
-        //[DataTestMethod]
-        //[DataRow(new object[] { null }, new object[] { -1 }, DisplayName = "A_ArrIsNull_ReturnsMinus1")]
-        //public void A_Methods_WithObject(object[] boxData, object[] expected)
-        //{
-        //    // Arrange
-        //    int actual;
-        //    int box = Convert.ToInt32(boxData[0]), expectedBox = Convert.ToInt32(expected[0]);
+        [DataTestMethod]
+        [DataRow(new object[] { null }, new object[] { -1 }, DisplayName = "A_ArrIsNull_ReturnsMinus1_WithObject")]
+        //[DataRow(new object[] { new HW15Box[] { } }, new object[] { -1 }, DisplayName = "A_ArrIsEmpty_ReturnsMinus1_WithObject")]
+        //[DataRow(new object[] { null }, new object[] { -1 }, DisplayName = "A_ArrIsNull_ReturnsMinus1_WithObject")]
 
-        //    // Act
-        //    actual = HW15Box.A(box);
+        public void A_Methods_WithObject(object[] boxData, object[] expected)
+        {
+            // Arrange
+            int actual;
+            HW15Box[] box = (HW15Box[])boxData[0];
+            int expectedBox = Convert.ToInt32(expected[0]);
 
-        //    // Assert
-        //    Assert.AreEqual(expectedBox, box, "Should return " + expected[0]);
+            // Act
+            actual = HW15Box.A(box);
 
-        //}
+            // Assert
+            Assert.AreEqual(expectedBox, actual, "Should return " + expected[0]);
+
+        }
     }
 }
