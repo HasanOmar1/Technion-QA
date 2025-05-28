@@ -17,7 +17,7 @@ namespace HomeWork
 
             for (int i = 0;  i < a.Length;  i++)
             {
-                if(k == 0)
+                if(k < 1)
                     arr[count++] = a[i];
                 else
                     for (int j = 0; j < k; j++)
