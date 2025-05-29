@@ -8,8 +8,8 @@ namespace InClass.UnitTesting
     {
         [TestMethod]
         [DataRow(17, true, DisplayName = "IsPrime_PrimeNumber_ReturnsTrue")]
-        [DataRow(170, true, DisplayName = "IsPrime_NotPrimeNumber_ReturnsFalse")]
-        [DataRow(-170, true, DisplayName = "IsPrime_NegativeNumber_ReturnsFalse")]
+        [DataRow(170, false, DisplayName = "IsPrime_NotPrimeNumber_ReturnsFalse")]
+        [DataRow(-170, false, DisplayName = "IsPrime_NegativeNumber_ReturnsFalse")]
         public void IsPrime_DataRowTests(int numToTest, bool expected)
         {
             // Arrange
@@ -42,6 +42,8 @@ namespace InClass.UnitTesting
                 new object[]{ 17,true}  ,//test1
                 new object[]{ 170,false},//test2
                 new object[]{-170,false},//test3
+                new object[]{  2,  true},//test3
+
             };
         }
     }

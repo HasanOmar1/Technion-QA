@@ -21,7 +21,7 @@ namespace Objects.UnitTesting
             actual = new Animal(type, age, weight);
 
             // Assert
-            Assert.AreEqual(type, actual.getAnimalType() , "Problem in Type");
+            Assert.AreEqual(type, actual.getAnimalType(), "Problem in Type");
             Assert.AreEqual(age, actual.getAge(), "Problem in Age");
             Assert.AreEqual(weight, actual.getWeight(), "Problem in Weight");
 
@@ -34,10 +34,10 @@ namespace Objects.UnitTesting
 
             // Arrange
             string type = "Cat";
-            int age = -1 , expectedAge = 0;
+            int age = -1, expectedAge = 0;
             double weight = 2.5;
 
-            Animal actual; 
+            Animal actual;
 
             // Act
             actual = new Animal(type, age, weight);
@@ -55,10 +55,10 @@ namespace Objects.UnitTesting
         {
 
             // Arrange
-            string type = null , expectedType = "Lion";
+            string type = null, expectedType = "Lion";
             int age = -11, expectedAge = 0;
-            double weight = -2.5 , expectedWeight = 1;
-            
+            double weight = -2.5, expectedWeight = 1;
+
             Animal actual;
 
             // Act
@@ -74,11 +74,11 @@ namespace Objects.UnitTesting
 
 
         [DataTestMethod]
-        [DataRow("Cat", 1 , 2.5 , "Cat" , 1 , 2.5 , DisplayName = "Ctro1_ValidValues_ReturnsRelevantAnimal")]
+        [DataRow("Cat", 1, 2.5, "Cat", 1, 2.5, DisplayName = "Ctro1_ValidValues_ReturnsRelevantAnimal")]
         [DataRow("Cat", -1, 2.5, "Cat", 0, 2.5, DisplayName = "Ctro1_NegativeAge_ReturnsAnimalWithAge0")]
         [DataRow(null, -11, -2.5, "Lion", 0, 1, DisplayName = "Ctro1_IllegalValues_ReturnsDefaultAsExpected")]
 
-        public void Ctro1(string type , int age , double weight , string expectedType , int expectedAge , double expectedWeight)
+        public void Ctro1(string type, int age, double weight, string expectedType, int expectedAge, double expectedWeight)
         {
 
             // Arrange
@@ -96,11 +96,11 @@ namespace Objects.UnitTesting
         }
 
         [DataTestMethod]
-        [DataRow(new object[] { "Cat", 1, 2.5 },new object[] { "Cat", 1, 2.5 }, DisplayName = "Ctro1_ValidValues_ReturnsRelevantAnimal")]
-        [DataRow(new object[] { "Cat", -1, 2.5 } ,new object[] { "Cat", 0, 2.5 }, DisplayName = "Ctro1_NegativeAge_ReturnsAnimalWithAge0")]
+        [DataRow(new object[] { "Cat", 1, 2.5 }, new object[] { "Cat", 1, 2.5 }, DisplayName = "Ctro1_ValidValues_ReturnsRelevantAnimal")]
+        [DataRow(new object[] { "Cat", -1, 2.5 }, new object[] { "Cat", 0, 2.5 }, DisplayName = "Ctro1_NegativeAge_ReturnsAnimalWithAge0")]
         [DataRow(new object[] { null, -11, -2.5 }, new object[] { "Lion", 0, 1 }, DisplayName = "Ctro1_IllegalValues_ReturnsDefaultAsExpected")]
 
-        public void Ctro1_UsingObjects(object[] animalData , object[] expected)
+        public void Ctro1_UsingObjects(object[] animalData, object[] expected)
         {
 
             // Arrange
@@ -109,12 +109,12 @@ namespace Objects.UnitTesting
 
             // Act
             actual = new Animal(Convert.ToString(animalData[0]),
-                                Convert.ToInt32( animalData[1]) ,
+                                Convert.ToInt32(animalData[1]),
                                 Convert.ToDouble(animalData[2]));
 
             // Assert
             Assert.AreEqual(Convert.ToString(expected[0]), actual.getAnimalType(), "Problem in Type");
-            Assert.AreEqual(Convert.ToInt32(expected[1]) , actual.getAge(), "Problem in Age");
+            Assert.AreEqual(Convert.ToInt32(expected[1]), actual.getAge(), "Problem in Age");
             Assert.AreEqual(Convert.ToDouble(expected[2]), actual.getWeight(), "Problem in Weight");
 
 
@@ -190,7 +190,7 @@ namespace Objects.UnitTesting
         }
 
         [DataTestMethod]
-        [DataRow(new object[] { "Cat" },new object[] { "Cat", 5, 250 }, DisplayName = "Ctro2_ValidValues_ReturnsRelevantAnimal")]
+        [DataRow(new object[] { "Cat" }, new object[] { "Cat", 5, 250 }, DisplayName = "Ctro2_ValidValues_ReturnsRelevantAnimal")]
         [DataRow(new object[] { null }, new object[] { "Lion", 5, 250 }, DisplayName = "Ctro2_AnimalIsNull_ReturnsAnimalAsLionWithDefaults")]
         [DataRow(new object[] { "" }, new object[] { "Lion", 5, 250 }, DisplayName = "Ctro2_AnimalIsEmpty_ReturnsAnimalAsLionWithDefaults")]
         public void Ctro2_UsingObjects(object[] animalData, object[] expected)
@@ -202,7 +202,7 @@ namespace Objects.UnitTesting
 
             // Act
             actual = new Animal(Convert.ToString(animalData[0]));
-                               
+
 
             // Assert
             Assert.AreEqual(Convert.ToString(expected[0]), actual.getAnimalType(), "Problem in Type");
@@ -250,6 +250,31 @@ namespace Objects.UnitTesting
             Assert.AreEqual(expectedWeight, actual.getWeight(), "Problem in Weight");
 
 
+        }
+
+
+        [TestMethod]
+        [DynamicData("CountAnimalsByTypeTestGenerator", DynamicDataSourceType.Method)]
+        public void CountAnimalsByType_Dynamic(Animal[] animals, string aType, int expected)
+        {
+            // Arrange
+            int actual;
+
+            // Act
+            actual = Animal.CountAnimalsByType(animals, aType);
+
+            // Assert
+            Assert.AreEqual(expected, actual, "Should return " + expected + " but got " + actual);
+        }
+
+        public static object[][] CountAnimalsByTypeTestGenerator()
+        {
+            return new[]
+            {
+                new object[]{ new Animal[] { new Animal("Zebra") , new Animal(null , 5 , 3 )} , "Zebra" , 1 }, // test
+                new object[]{  new Animal[] { new Animal("Zebra") , new Animal(null , 5 , 3 )} , "Lion" , 1}, // test2
+                new object[] {null , "Cat" , 0},
+            };
         }
     }
 }

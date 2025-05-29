@@ -67,5 +67,24 @@ namespace Objects
         }
 
         #endregion
+
+
+        #region Methods
+
+        // input : array of animals , string that represents the type of the animal 
+        // output: number of animals of the same type
+        public static int CountAnimalsByType(Animal[] animals, string aType)
+        {
+            if (animals == null || animals.Length == 0) return 0;
+
+            int count = 0;
+            for (int i = 0; i < animals.Length; i++)
+                if (animals[i] != null && animals[i].animalType.Equals(aType))
+                    count++;
+
+
+            return count;
+        }
+        #endregion
     }
 }
