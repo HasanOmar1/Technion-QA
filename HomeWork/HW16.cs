@@ -40,8 +40,6 @@ namespace HomeWork
 
             }
 
-            Console.WriteLine("K = " + k);
-
             int[] a = BuildK(arr, k);
             bool isSame = true;
             if (a.Length == brr.Length)

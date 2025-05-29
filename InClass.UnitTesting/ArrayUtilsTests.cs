@@ -198,5 +198,59 @@ namespace InClass.UnitTesting
                 Assert.AreEqual(expected[i], actual[i], "Problem in item #" + i);
 
         }
+
+
+
+
+        [TestMethod]
+        [DynamicData("GetEvenItemsInIntArrayTestGenerator", DynamicDataSourceType.Method)]
+        public void GetEvenItemsInIntArray_DynamicTests(int[] arr, int[] expected)
+        {
+
+            // Arrange
+            int[] actual;
+
+            ArrayUtils myCode = new ArrayUtils();
+
+            // Act
+            actual = myCode.GetEvenItemsInIntArray(arr);
+
+            // Assert
+
+            // if we get null the test should fail
+            if (expected == null && actual == null)
+            {
+                Assert.IsTrue(true);
+                return;
+
+            }
+
+            if (expected == null && actual != null)
+                Assert.Fail("We expected null but didnt get null");
+
+            if (expected != null && actual == null)
+                Assert.Fail("We didnt expect null but we got null");
+
+
+            // if the code comes here then both actual and expected are not null
+            Assert.AreEqual(expected.Length, actual.Length, "Bug in array length");
+
+            for (int i = 0; i < expected.Length; i++)
+                Assert.AreEqual(expected[i], actual[i], "Problem in item #" + i);
+
+        }
+
+        public static object[][] GetEvenItemsInIntArrayTestGenerator()
+        {
+            return new[]
+            {
+                new object[]{ new int[] { -3, 1, 10, 3, 8, 20 }, new int[] { 10, 8, 20 } }, //test1
+                new object[]{ new int[] { 20 }, new int[] { 20 } }, //test2
+                new object[]{ new int[] { 6, 8, 10 }, new int[] { 6, 8, 10 } }, //test3
+                new object[]{ new int[] { -3, 1, 101, 3, 81, 201 }, new int[] { } }, //test4
+                new object[]{ null , null}, // test5
+                new object[]{ new int[] { } , new int[] { } } ,// test6
+            };
+        }
     }
 }
