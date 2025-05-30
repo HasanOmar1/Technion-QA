@@ -253,7 +253,7 @@ namespace HomeWork.UnitTesting
 
         }
 
-
+        // C - 1
         [DataTestMethod]
         [DataRow("green", 5, 10, 20, 30, "green", 5, 10, 20, 30, DisplayName = "Ctor1_ValidInputs_ReturnsValidData")]
         [DataRow(null, 5, 10, 20, 30, "white", 5, 10, 20, 30, DisplayName = "Ctor1_ColorIsNull_ReturnsWhiteColor")]
@@ -285,7 +285,7 @@ namespace HomeWork.UnitTesting
 
         }
 
-
+        // C - 2
         [DataTestMethod]
         [DataRow(new object[] { "green", 5, 10, 20, 30 }, new object[] { "green", 5, 10, 20, 30 }, DisplayName = "Ctor1_ValidInputs_ReturnsValidData")]
         [DataRow(new object[] { null, 5, 10, 20, 30 }, new object[] { "white", 5, 10, 20, 30 }, DisplayName = "Ctor1_ColorIsNull_ReturnsWhiteColor")]
@@ -331,8 +331,49 @@ namespace HomeWork.UnitTesting
         }
 
 
+        // D
+
+        [DataTestMethod]
+        [DynamicData("CtorsTestGenerator", DynamicDataSourceType.Method)]
+        public void Ctors_DynamicData(string color, int len, int width, int height, int weight, string expectedColor, int expectedLen, int expectedWidth, int expectedHeight, double expectedWeight, int ctorNum = 1)
+        {
+            // Arrange
+            HW15Box box;
 
 
+            // Act
+            box = new HW15Box(color, len, width, height, weight);
+
+            if (ctorNum == 2)
+                box = new HW15Box(color, weight);
+
+            // Assert
+            Assert.AreEqual(expectedColor, box.GetColor(), "Error in Color");
+            Assert.AreEqual(expectedLen, box.GetLen(), "Error in Length");
+            Assert.AreEqual(expectedWidth, box.GetWidth(), "Error in Width");
+            Assert.AreEqual(expectedHeight, box.GetHeight(), "Error in Height");
+            Assert.AreEqual(expectedWeight, box.GetWeight(), "Error in Weight");
+
+
+        }
+
+        public static object[][] CtorsTestGenerator()
+        {
+            return new[]
+            {
+                new object[]{ "green" , 5 , 10 , 20 , 30 ,"green" , 5 , 10 , 20 , 30 },
+                new object[]{ null, 5, 10, 20, 30 , "white", 5, 10, 20, 30 },
+                new object[] { "black", -5, -12, 20, 30  , "black", 1, 1, 20, 30 },
+                new object[] { null, -5, -12, -20, -30 , "white", 1, 1, 1, 1 },
+                new object[] { "green", 0, 0, 0, 30 , "green", 1, 1, 1, 30 , 2 },
+                new object[] { null, 0, 0, 0, 30 , "white", 1, 1, 1, 30, 2 },
+                new object[] { "", 0, 0, 0, 30 , "white", 1, 1, 1, 30 , 2 },
+                new object[] { "green", 0, 0, 0, -30 , "green", 1, 1, 1, 1 ,2 }
+            };
+        }
+
+
+        // -------------------------------
         [TestMethod]
         public void A_ArrIsNull_ReturnsMinus1()
         {
