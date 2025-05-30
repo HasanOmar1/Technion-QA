@@ -474,8 +474,9 @@ namespace HomeWork.UnitTesting
 
             HW15Box box1 = new HW15Box("red", 5);
             HW15Box box2 = new HW15Box("green", 5);
+            HW15Box box3 = new HW15Box("green", 5);
 
-            HW15Box[] boxes = { box1, box2 }, expected = { box1, box2 };
+            HW15Box[] boxes = { box1, box2 }, expected = { box1, box3 };
 
             // Act
             actual = HW15Box.B(boxes);
@@ -492,23 +493,84 @@ namespace HomeWork.UnitTesting
         }
 
         [DataTestMethod]
-        [DataRow(new object[] { null }, new object[] { -1 }, DisplayName = "A_ArrIsNull_ReturnsMinus1_WithObject")]
-        //[DataRow(new object[] { new HW15Box[] { } }, new object[] { -1 }, DisplayName = "A_ArrIsEmpty_ReturnsMinus1_WithObject")]
-        //[DataRow(new object[] { null }, new object[] { -1 }, DisplayName = "A_ArrIsNull_ReturnsMinus1_WithObject")]
+        [DynamicData("AMethodsTestGenerator", DynamicDataSourceType.Method)]
 
-        public void A_Methods_WithObject(object[] boxData, object[] expected)
+        public void A_Methods_DynamicData(HW15Box[] box, int expected)
         {
             // Arrange
             int actual;
-            HW15Box[] box = (HW15Box[])boxData[0];
-            int expectedBox = Convert.ToInt32(expected[0]);
 
             // Act
             actual = HW15Box.A(box);
 
             // Assert
-            Assert.AreEqual(expectedBox, actual, "Should return " + expected[0]);
+            Assert.AreEqual(expected, actual, "Should return " + expected);
 
         }
+
+        public static object[][] AMethodsTestGenerator()
+        {
+            HW15Box box = new HW15Box("red", 5);
+
+            return new[]
+            {
+                new object[] {null , -1 },
+                new object[] { new HW15Box[] { } , -1 },
+                new object[] { new HW15Box[] { box} , 1 }
+
+            };
+        }
+
+        [DataTestMethod]
+        [DynamicData("BMethodsTestGenerator", DynamicDataSourceType.Method)]
+        public void B_Methods_DynamicData(HW15Box[] box, HW15Box[] expected)
+        {
+
+            // Arrange
+            HW15Box[] actual;
+
+
+            // Act
+            actual = HW15Box.B(box);
+
+            // Assert
+
+            if (expected == null && actual != null)
+                Assert.Fail("Should Return " + expected + " but got " + actual);
+
+            if (expected != null && actual == null)
+                Assert.Fail("Should return " + expected + " but got " + actual);
+
+
+            if (expected == null && actual == null)
+            {
+                Assert.IsTrue(true);
+                return;
+            }
+
+            Assert.AreEqual(expected.Length, actual.Length, "Bug in length of array");
+            for (int i = 0; i < actual.Length; i++)
+            {
+                Assert.AreEqual(expected[i].GetColor(), actual[i].GetColor(), "Bug with color at index #" + i);
+                Assert.AreEqual(expected[i].GetWeight(), actual[i].GetWeight(), "Bug with weight at index #" + i);
+
+            }
+        }
+
+        public static object[][] BMethodsTestGenerator()
+        {
+            HW15Box box1 = new HW15Box("red", 5);
+            HW15Box box2 = new HW15Box("green", 5);
+            HW15Box box3 = new HW15Box("green", 5);
+
+            return new[]
+            {
+                new object[] { null,null},
+                new object[] { new HW15Box[] { } , new HW15Box[] { } },
+                new object[] { new HW15Box[] { box1, box2 } , new HW15Box[] { box1 ,box3 } }
+
+            };
+        }
+
     }
 }
