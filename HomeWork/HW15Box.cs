@@ -108,6 +108,54 @@ namespace HomeWork
 
         }
 
+        public static string HeaviestBox(HW15Box[] arr)
+        {
+
+
+            double weight = arr[0].weight;
+            for (int i = 1; i < arr.Length; i++)
+                if (arr[i].weight > weight)
+                    weight = arr[i].weight;
+
+            string color = "";
+
+            for (int i = 0; i < arr.Length; i++)
+                if (arr[i].weight == weight)
+                    color = arr[i].color;
+
+
+            return color;
+
+        }
+
+        public static HW15Box[] GetBoxesInRange(HW15Box[] arr, int min, int max)
+        {
+
+            if (arr == null) return null;
+
+            int size = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                int volume = arr[i].len * arr[i].width * arr[i].height;
+                if (volume >= min && volume <= max) size++;
+            }
+
+            if (size == 0) return new HW15Box[] { };
+
+            HW15Box[] boxes = new HW15Box[size];
+            int index = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                int volume = arr[i].len * arr[i].width * arr[i].height;
+                if (volume >= min && volume <= max)
+                {
+                    boxes[index++] = arr[i];
+                }
+            }
+
+            return boxes;
+
+        }
 
 
     }
