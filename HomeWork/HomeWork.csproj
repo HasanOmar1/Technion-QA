@@ -49,6 +49,7 @@
     <Compile Include="HW14Human.cs" />
     <Compile Include="HW15Box.cs" />
     <Compile Include="HW16.cs" />
+    <Compile Include="HW18Clock.cs" />
     <Compile Include="HW3.cs" />
     <Compile Include="HW4.cs" />
     <Compile Include="HW5.cs" />
