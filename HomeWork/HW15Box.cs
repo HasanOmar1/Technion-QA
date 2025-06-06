@@ -110,7 +110,7 @@ namespace HomeWork
 
         public static string HeaviestBox(HW15Box[] arr)
         {
-
+            if (arr == null || arr.Length == 0) return null;
 
             double weight = arr[0].weight;
             for (int i = 1; i < arr.Length; i++)
@@ -132,6 +132,7 @@ namespace HomeWork
         {
 
             if (arr == null) return null;
+            if (arr.Length == 0) return new HW15Box[] { };
 
             int size = 0;
             for (int i = 0; i < arr.Length; i++)

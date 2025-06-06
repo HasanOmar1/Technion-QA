@@ -16,6 +16,19 @@ namespace HomeWork.UnitTesting
             actual = HW15Box.HeaviestBox(boxes);
 
             // Assert
+
+            if (expected == null && actual == null)
+            {
+                Assert.IsTrue(true);
+                return;
+            }
+
+            if (expected == null && actual != null)
+                Assert.Fail("Expected to get null but didnt");
+
+            if (expected != null && actual == null)
+                Assert.Fail("Expected to not get null but got null");
+
             Assert.AreEqual(expected, actual, "Should return " + expected + " but got " + actual);
         }
 
@@ -25,6 +38,8 @@ namespace HomeWork.UnitTesting
                 new object []{ new HW15Box[] { new HW15Box("red" , 10) , new HW15Box("blue" , 5) } , "red" },
                 new object []{ new HW15Box[] { new HW15Box(null , 10) , new HW15Box("blue" , 5) } , "white" },
                 new object []{ new HW15Box[] { new HW15Box("red" , 10) , new HW15Box("blue" , 51) } , "blue" },
+                new object []{ null , null},
+                new object []{ new HW15Box[] { } , null },
 
             };
         }
@@ -79,7 +94,9 @@ namespace HomeWork.UnitTesting
             {
                 new object[] {arr , 50,130 , new HW15Box[] { box1,box2} },
                 new object[] {null , 50,130 , null },
-                new object[] {arr ,10,20 , new HW15Box[] { } }
+                new object[] {arr ,10,20 , new HW15Box[] { } },
+                new object[] { new HW15Box[] { } , 0,100 , new HW15Box[] { } }
+
             };
         }
     }
