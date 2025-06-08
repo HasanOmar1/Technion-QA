@@ -6,7 +6,7 @@ namespace HomeWork.UnitTesting
     public class HW18ClockTests
     {
         [DataTestMethod]
-        [DynamicData("ClockTestGenerator", DynamicDataSourceType.Method)]
+        [DynamicData("ClockGetIntervalTestGenerator", DynamicDataSourceType.Method)]
         public void Clock_GetInterval_DynamicData(int hour, int min, int expected)
         {
             // Arrange
@@ -21,14 +21,14 @@ namespace HomeWork.UnitTesting
             Assert.AreEqual(expected, actual, "Should have gotten " + expected + " but got " + actual);
         }
 
-        public static object[][] ClockTestGenerator()
+        public static object[][] ClockGetIntervalTestGenerator()
         {
             return new[]
             {
                 new object[] {20 , 45 , 195},
                 new object[] {23 , 59 , 1},
-                new object[] {24 , 0 , 0},
-                new object[] {31 , 5 , 0 },
+                new object[] {24 , 0 , 1440},
+                new object[] {31 , 5 , 1435 },
                 new object[] {0 , 0 , 1440}
             };
         }
@@ -40,8 +40,8 @@ namespace HomeWork.UnitTesting
         [DataRow(14, 31, "14:31", DisplayName = " Clock_ToString_14Hour31Minutes_Returns14:31")]
         [DataRow(24, 13, "00:13", DisplayName = " Clock_ToString_24Hour13Minutes_Returns00:13")]
         [DataRow(24, 0, "00:00", DisplayName = " Clock_ToString_24Hour0Minutes_Returns00:00")]
-        [DataRow(5, 70, "06:10", DisplayName = " Clock_ToString_5Hour70Minutes_Returns06:10")]
-        [DataRow(30, 100, "07:40", DisplayName = " Clock_ToString_30Hour100Minutes_Returns07:40")]
+        [DataRow(5, 70, "05:00", DisplayName = " Clock_ToString_5Hour70Minutes_Returns00:00")]
+        [DataRow(30, 100, "00:00", DisplayName = " Clock_ToString_30Hour100Minutes_Returns00:00")]
 
 
 
@@ -105,5 +105,9 @@ namespace HomeWork.UnitTesting
 
 
         }
+
+
+
+
     }
 }

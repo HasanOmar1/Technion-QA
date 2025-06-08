@@ -8,8 +8,8 @@
 
         public HW18Clock(int hour, int min)
         {
-            this.hour = hour;
-            this.min = min;
+            this.hour = (hour < 0) || (hour > 23) ? 0 : hour;
+            this.min = (min < 0) || (min > 59) ? 0 : min;
 
         }
 
@@ -28,14 +28,6 @@
         public string ToString()
         {
 
-            if (this.hour > 23)
-                this.hour = this.hour % 24;
-
-            if (this.min > 59)
-            {
-                this.hour = this.hour + (this.min / 60);
-                this.min = this.min % 60;
-            }
 
             string hour = "";
             if (this.hour < 10)
@@ -85,8 +77,18 @@
 
         }
 
+        public static HW18Clock WhichClockIsEarlier(HW18Clock[] arr)
+        {
+            if (arr == null || arr.Length == 0)
+                return null;
+
+            HW18Clock earlierClock = arr[0];
+            for (int i = 1; i < arr.Length; i++)
+                if (arr[i].IsEarlier(earlierClock))
+                    earlierClock = arr[i];
+
+            return earlierClock;
+        }
+
     }
-
-
-
 }

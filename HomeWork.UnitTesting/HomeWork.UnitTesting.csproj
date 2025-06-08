@@ -182,6 +182,7 @@
     <Compile Include="HW16Tests.cs" />
     <Compile Include="HW17Tests.cs" />
     <Compile Include="HW18ClockTests.cs" />
+    <Compile Include="HW19Tests.cs" />
     <Compile Include="HW2Tests.cs" />
     <Compile Include="HW3Tests.cs" />
     <Compile Include="HW4Tests.cs" />
