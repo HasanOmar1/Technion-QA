@@ -184,6 +184,7 @@
     <Compile Include="HW18ClockTests.cs" />
     <Compile Include="HW19Tests.cs" />
     <Compile Include="HW20Tests.cs" />
+    <Compile Include="HW21Tests.cs" />
     <Compile Include="HW2Tests.cs" />
     <Compile Include="HW3Tests.cs" />
     <Compile Include="HW4Tests.cs" />
@@ -206,6 +207,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="XMLTests\HW20Tests.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XMLTests\HW21Tests.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="XMLTests\HW3Tests.xml">

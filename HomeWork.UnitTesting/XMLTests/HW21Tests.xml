@@ -1,0 +1,79 @@
+﻿<HW21Tests>
+
+	<IsSpecialString>
+		<!-- Input -->
+		<string>cc</string>
+
+		<!-- Output-->
+		<expectedResult>true</expectedResult>
+	</IsSpecialString>
+
+	<IsSpecialString>
+		<!-- Input -->
+		<string>abddba</string>
+
+		<!-- Output-->
+		<expectedResult>true</expectedResult>
+	</IsSpecialString>
+
+	<IsSpecialString>
+		<!-- Input -->
+		<string>ZZRRYYYY</string>
+
+		<!-- Output-->
+		<expectedResult>true</expectedResult>
+	</IsSpecialString>
+
+
+	<IsSpecialString>
+		<!-- Input -->
+		<string></string>
+
+		<!-- Output-->
+		<expectedResult>false</expectedResult>
+	</IsSpecialString>
+
+
+	<IsSpecialString>
+		<!-- Input -->
+		<string>AAbb</string>
+
+		<!-- Output-->
+		<expectedResult>false</expectedResult>
+	</IsSpecialString>
+
+	<IsSpecialString>
+		<!-- Input -->
+		<string>12345!@#%!@</string>
+
+		<!-- Output-->
+		<expectedResult>false</expectedResult>
+	</IsSpecialString>
+
+	<IsSpecialString>
+		<!-- Input -->
+		<string>ab*cd</string>
+
+		<!-- Output-->
+		<expectedResult>false</expectedResult>
+	</IsSpecialString>
+
+	<IsSpecialString>
+		<!-- Input -->
+		<string>AB</string>
+
+		<!-- Output-->
+		<expectedResult>false</expectedResult>
+	</IsSpecialString>
+
+
+	<IsSpecialString>
+		<!-- Input -->
+		<string>abca</string>
+
+		<!-- Output-->
+		<expectedResult>false</expectedResult>
+	</IsSpecialString>
+
+
+</HW21Tests>
