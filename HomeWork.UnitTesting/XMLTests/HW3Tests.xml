@@ -1,0 +1,22 @@
+﻿<HW3Tests>
+
+	<calcTest>
+		<!-- Input -->
+		<x>100</x>
+		<y>200</y>
+		<z>true</z>
+		<!-- Output -->
+		<result>300</result>
+	</calcTest>
+
+
+	<calcTest>
+		<!-- Input -->
+		<x>10</x>
+		<y>20</y>
+		<z>false</z>
+		<!-- Output -->
+		<result>-10</result>
+	</calcTest>
+
+</HW3Tests>

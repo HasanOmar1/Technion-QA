@@ -1,0 +1,23 @@
+﻿<AnimalTests>
+
+	<ctor2Test>
+		<!--Input-->
+		<animalType>Cat</animalType>
+		<!--output-->
+		<expectedAnimalType>Cat</expectedAnimalType>
+		<expectedAnimalAge>5</expectedAnimalAge>
+		<expectedAnimalWeight>250</expectedAnimalWeight>
+
+	</ctor2Test>
+
+
+	<ctor2Test>
+		<!--Input-->
+		<animalType></animalType>
+		<!--output-->
+		<expectedAnimalType>Lion</expectedAnimalType>
+		<expectedAnimalAge>5</expectedAnimalAge>
+		<expectedAnimalWeight>250</expectedAnimalWeight>
+	</ctor2Test>
+
+</AnimalTests>

@@ -6,6 +6,14 @@ namespace Objects.UnitTesting
     [TestClass]
     public class AnimalTests
     {
+        private TestContext testContext;
+
+        public TestContext TestContext
+        {
+            get { return testContext; }
+            set { testContext = value; }
+        }
+
         [TestMethod]
         public void Ctro1_ValidValues_ReturnsRelevantAnimal()
         {
@@ -276,5 +284,35 @@ namespace Objects.UnitTesting
                 new object[] {null , "Cat" , 0},
             };
         }
+
+
+
+        [TestMethod]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML"
+            , @"|DataDirectory|\XMLTests\AnimalTests.xml",
+            "ctor2Test", DataAccessMethod.Sequential)]
+        public void Ctro2_XML()
+        {
+
+            // Arrange
+            string animalType = Convert.ToString(TestContext.DataRow["animalType"]);
+
+            string expectedType = Convert.ToString(TestContext.DataRow["expectedAnimalType"]);
+            int expectedAge = Convert.ToInt32(TestContext.DataRow["expectedAnimalAge"]);
+            double expectedWeight = Convert.ToDouble(TestContext.DataRow["expectedAnimalWeight"]);
+
+            Animal actual;
+
+            // Act
+            actual = new Animal(animalType);
+
+            // Assert
+            Assert.AreEqual(expectedType, actual.getAnimalType(), "Problem in Type");
+            Assert.AreEqual(expectedAge, actual.getAge(), "Problem in Age");
+            Assert.AreEqual(expectedWeight, actual.getWeight(), "Problem in Weight");
+
+
+        }
+
     }
 }
