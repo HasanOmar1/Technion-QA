@@ -205,6 +205,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="XMLTests\HW20Tests.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="XMLTests\HW3Tests.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

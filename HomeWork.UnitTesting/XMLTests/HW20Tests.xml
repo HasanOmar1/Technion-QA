@@ -1,0 +1,45 @@
+﻿<HW20Tests>
+
+
+	<IsSpecialTests>
+
+		<!-- Input -->
+		<str></str>
+
+		<!-- Output -->
+		<expectedResult>false</expectedResult>
+
+	</IsSpecialTests>
+
+	<IsSpecialTests>
+
+		<!-- Input -->
+		<str>12@34%!56</str>
+
+		<!-- Output -->
+		<expectedResult>false</expectedResult>
+
+	</IsSpecialTests>
+
+	<IsSpecialTests>
+
+		<!-- Input -->
+		<str>AbC23cBa1@</str>
+
+		<!-- Output -->
+		<expectedResult>true</expectedResult>
+
+	</IsSpecialTests>
+
+
+	<IsSpecialTests>
+
+		<!-- Input -->
+		<str>AbC23CBa1@</str>
+
+		<!-- Output -->
+		<expectedResult>false</expectedResult>
+
+	</IsSpecialTests>
+
+</HW20Tests>
