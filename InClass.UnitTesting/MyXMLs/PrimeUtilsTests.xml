@@ -1,0 +1,21 @@
+﻿<PrimeUtilsTests>
+
+	<!--Test1-->
+	<IsPrimeTest>
+		<numToTest>17</numToTest>
+		<result>TrUe</result>
+	</IsPrimeTest>
+
+	<!--Test2-->
+	<IsPrimeTest>
+		<numToTest>170</numToTest>
+		<result>FaLSe</result>
+	</IsPrimeTest>
+
+	<!--Test3-->
+	<IsPrimeTest>
+		<numToTest>13</numToTest>
+		<result>true</result>
+	</IsPrimeTest>
+
+</PrimeUtilsTests>

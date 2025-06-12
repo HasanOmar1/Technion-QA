@@ -6,6 +6,16 @@ namespace InClass.UnitTesting
     [TestClass]
     public class PrimeUtilsTests
     {
+
+        private TestContext testContext;
+
+        public TestContext TestContext
+        {
+            get { return testContext; }
+            set { testContext = value; }
+        }
+
+
         [TestMethod]
         [DataRow(17, true, DisplayName = "IsPrime_PrimeNumber_ReturnsTrue")]
         [DataRow(170, false, DisplayName = "IsPrime_NotPrimeNumber_ReturnsFalse")]
@@ -45,6 +55,26 @@ namespace InClass.UnitTesting
                 new object[]{  2,  true},//test3
 
             };
+        }
+
+
+        [TestMethod]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
+            @"|DataDirectory|\MyXMLs\PrimeUtilsTests.xml",
+            "IsPrimeTest", DataAccessMethod.Sequential)]
+
+        public void IsPrime_XMLTests()
+        {
+            // Arrange
+            bool actual,
+                expected = Convert.ToBoolean(TestContext.DataRow["result"]);
+            int num = Convert.ToInt32(TestContext.DataRow["numToTest"]);
+
+            // Act
+            actual = PrimeUtils.IsPrime(num);
+
+            // Assert
+            Assert.AreEqual(expected, actual, "expected " + expected + " but got " + actual);
         }
     }
 }
