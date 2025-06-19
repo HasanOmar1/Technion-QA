@@ -1,0 +1,37 @@
+﻿<ClockTests>
+
+
+	<Ctor2Test>
+		<color></color>
+		<hour>51</hour>
+		<min>411</min>
+
+		<expectedColor>White!</expectedColor>
+		<expectedHour>0</expectedHour>
+		<expectedMin>0</expectedMin>
+	</Ctor2Test>
+
+
+
+	<Ctor2Test>
+		<color>Red</color>
+		<hour>3</hour>
+		<min>41</min>
+
+		<expectedColor>Red</expectedColor>
+		<expectedHour>3</expectedHour>
+		<expectedMin>41</expectedMin>
+	</Ctor2Test>
+
+
+
+	<Ctor2Test>
+		<color>Black</color>
+		<hour>-10</hour>
+		<min>8</min>
+
+		<expectedColor>Black</expectedColor>
+		<expectedHour>0</expectedHour>
+		<expectedMin>8</expectedMin>
+	</Ctor2Test>
+</ClockTests>

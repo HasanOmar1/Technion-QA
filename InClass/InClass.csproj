@@ -44,7 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArrayUtils.cs" />
-    <Compile Include="Clock.cs" />
     <Compile Include="PrimeUtils.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
